@@ -1,34 +1,946 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SAAO intervient à Toulouse pour vos besoins en plomberie, serrurerie et électricité. 5 ans d'expérience, intervention soignée et contact rapide." />
+  <title>SAAO | Plombier, serrurier et électricien à Toulouse</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5f6b78;
+      --paper: #f6f3ee;
+      --white: #ffffff;
+      --line: rgba(23, 33, 43, 0.12);
+      --brand: #0f6b74;
+      --brand-dark: #0a4046;
+      --accent: #d49b39;
+      --soft: #e9f4f4;
+      --shadow: 0 24px 70px rgba(12, 28, 35, 0.16);
+      --radius: 8px;
+    }
 
-<title>SAAO Toulouse</title>
+    * {
+      box-sizing: border-box;
+    }
 
-<style>
-body {margin:0;font-family:Arial;background:#f4f6f8;}
-header {background:#0d47a1;color:white;padding:20px;text-align:center;}
-.hero {background:#333;color:white;padding:100px 20px;text-align:center;}
-footer {background:#0d47a1;color:white;text-align:center;padding:20px;}
-</style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .topbar {
+      background: var(--brand-dark);
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    .topbar-inner,
+    .nav-inner,
+    .section-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar strong {
+      color: #ffe6b3;
+      font-weight: 700;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 243, 238, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--white);
+      background: var(--brand);
+      border-radius: var(--radius);
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow: 0 10px 24px rgba(15, 107, 116, 0.28);
+    }
+
+    .brand-name {
+      font-weight: 800;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.25;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--brand);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 800;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--brand);
+      box-shadow: 0 14px 28px rgba(15, 107, 116, 0.24);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: var(--brand-dark);
+    }
+
+    .btn-secondary {
+      color: var(--brand-dark);
+      background: var(--white);
+      border-color: var(--line);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 118px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(8, 30, 34, 0.9) 0%, rgba(8, 30, 34, 0.72) 44%, rgba(8, 30, 34, 0.18) 100%),
+        url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1800&q=80") center / cover;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 78px 0 96px;
+      color: var(--white);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: #ffe6b3;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 20px;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(130px, 1fr));
+      max-width: 660px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .proof-item {
+      padding: 18px;
+      border-right: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .proof-item:last-child {
+      border-right: 0;
+    }
+
+    .proof-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .proof-item span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 720px;
+      margin-bottom: 0;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      max-width: 430px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card,
+    .contact-panel,
+    .about-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 16px 44px rgba(25, 35, 45, 0.08);
+    }
+
+    .service-card {
+      padding: 28px;
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      color: var(--brand-dark);
+      background: var(--soft);
+      border-radius: var(--radius);
+    }
+
+    .service-icon svg {
+      width: 27px;
+      height: 27px;
+      stroke-width: 2;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 9px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .check-list li {
+      position: relative;
+      padding-left: 23px;
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .about-media {
+      position: relative;
+      min-height: 450px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(10, 64, 70, 0.12), rgba(10, 64, 70, 0.12)),
+        url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80") center / cover;
+      box-shadow: var(--shadow);
+    }
+
+    .about-badge {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      width: min(260px, calc(100% - 44px));
+      padding: 22px;
+      color: var(--white);
+      background: var(--brand-dark);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-badge strong {
+      display: block;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .about-badge span {
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+    }
+
+    .about-panel {
+      padding: 38px;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .feature {
+      min-height: 118px;
+      padding: 20px;
+      background: var(--soft);
+      border-radius: var(--radius);
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .feature span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step {
+      min-height: 205px;
+      padding: 26px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      margin-bottom: 30px;
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    .step p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      padding: 38px;
+      background: var(--brand-dark);
+      color: var(--white);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .contact-panel p {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .phone-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 28px 0;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+    }
+
+    .phone-card span {
+      display: block;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .phone-card strong {
+      color: var(--white);
+      font-size: clamp(24px, 4vw, 36px);
+      line-height: 1.1;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 13px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .contact-map {
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(233, 244, 244, 0.9)),
+        url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=80") center / cover;
+      border: 1px solid var(--line);
+    }
+
+    .map-box {
+      width: min(330px, 100%);
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .map-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--brand-dark);
+      font-size: 22px;
+    }
+
+    .map-box p {
+      margin-bottom: 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 30px 0;
+      color: rgba(255, 255, 255, 0.74);
+      background: #071f23;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 36px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 auto;
+    }
+
+    .footer-inner strong {
+      color: var(--white);
+    }
+
+    @media (max-width: 900px) {
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .topbar-inner span:first-child {
+        display: none;
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        padding: 78px 0;
+      }
+
+      .hero-proof,
+      .service-grid,
+      .about-layout,
+      .steps,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .proof-item:last-child {
+        border-bottom: 0;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .about-media,
+      .contact-map {
+        min-height: 360px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner,
+      .nav-inner,
+      .section-inner,
+      .hero-inner,
+      .footer-inner {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-copy {
+        font-size: 17px;
+      }
+
+      .hero-actions,
+      .footer-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .service-card,
+      .about-panel,
+      .contact-panel,
+      .map-box {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <span>Toulouse et alentours - Plomberie, serrurerie, électricité</span>
+        <span>Contact direct : <strong>+33 7 56 94 79 10</strong></span>
+      </div>
+    </div>
 
-<header>
-<h1>SAAO</h1>
-<p>Plombier • Électricien • Serrurier Toulouse</p>
-</header>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-inner">
+        <a class="brand" href="#accueil" aria-label="Retour à l'accueil SAAO">
+          <span class="brand-mark">S</span>
+          <span>
+            <span class="brand-name">SAAO</span>
+            <span class="brand-subtitle">Artisan plombier à Toulouse</span>
+          </span>
+        </a>
 
-<section class="hero">
-<h1>📞 +33 7 56 94 79 10</h1>
-<p>08:00 – 22:00</p>
-</section>
+        <div class="nav-links" aria-label="Liens de navigation">
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#methode">Methode</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-<footer>
-<p>📧 Armantameyan31@gmail.com</p>
-</footer>
+        <a class="btn btn-primary" href="tel:+33756947910" aria-label="Appeler SAAO au +33 7 56 94 79 10">Appeler</a>
+      </div>
+    </nav>
+  </header>
 
+  <main id="accueil">
+    <section class="hero" aria-label="Presentation de SAAO">
+      <div class="hero-inner">
+        <p class="eyebrow">Intervention à Toulouse</p>
+        <h1>SAAO plombier, serrurier et électricien</h1>
+        <p class="hero-copy">
+          Un artisan de confiance pour vos dépannages, réparations et installations à Toulouse. 5 ans d'expérience, un travail propre et un contact simple.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+33756947910">Appeler +33 7 56 94 79 10</a>
+          <a class="btn btn-secondary" href="#services">Voir les services</a>
+        </div>
+
+        <div class="hero-proof" aria-label="Points forts">
+          <div class="proof-item">
+            <strong>5 ans</strong>
+            <span>d'expérience terrain</span>
+          </div>
+          <div class="proof-item">
+            <strong>3 metiers</strong>
+            <span>plomberie, serrure, électricité</span>
+          </div>
+          <div class="proof-item">
+            <strong>Toulouse</strong>
+            <span>interventions locales</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="services">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Services</p>
+            <h2>Des interventions sérieuses pour la maison et les locaux professionnels.</h2>
+          </div>
+          <p class="section-lead">
+            SAAO prend en charge les demandes courantes et urgentes avec une approche claire : écoute, diagnostic, solution adaptée, chantier laissé propre.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M14.7 6.3a4 4 0 0 0-5.6 5.6L3 18v3h3l6.1-6.1a4 4 0 0 0 5.6-5.6l-2.2 2.2-3-3 2.2-2.2Z" />
+              </svg>
+            </div>
+            <h3>Plomberie</h3>
+            <p>Recherche de fuite, remplacement de robinetterie, débouchage, réparation de chasse d'eau et installation sanitaire.</p>
+            <ul class="check-list">
+              <li>Fuite d'eau</li>
+              <li>Canalisation bouchée</li>
+              <li>Installation et réparation</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="5" y="10" width="14" height="10" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                <path d="M12 14v2" />
+              </svg>
+            </div>
+            <h3>Serrurerie</h3>
+            <p>Ouverture de porte, remplacement de cylindre, sécurisation d'accès et conseils pour améliorer la protection du logement.</p>
+            <ul class="check-list">
+              <li>Porte claquée</li>
+              <li>Serrure bloquée</li>
+              <li>Changement de cylindre</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M13 2 5 14h6l-1 8 9-13h-6l0-7Z" />
+              </svg>
+            </div>
+            <h3>Électricité</h3>
+            <p>Dépannage électrique, remplacement d'équipements, prises, interrupteurs, luminaires et petits travaux de remise en service.</p>
+            <ul class="check-list">
+              <li>Panne électrique</li>
+              <li>Prise ou interrupteur</li>
+              <li>Luminaire et raccordement</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-inner">
+        <div class="about-layout">
+          <div class="about-media" role="img" aria-label="Artisan en intervention technique">
+            <div class="about-badge">
+              <strong>5</strong>
+              <span>ans d'expérience en dépannage et installation</span>
+            </div>
+          </div>
+
+          <div class="about-panel">
+            <p class="section-kicker">Savoir-faire local</p>
+            <h2>Un artisan polyvalent, disponible pour Toulouse.</h2>
+            <p>
+              SAAO accompagne les particuliers et professionnels pour les besoins essentiels du bâtiment : plomberie, serrurerie et électricité. L'objectif est simple : répondre vite, expliquer clairement et réaliser une intervention fiable.
+            </p>
+            <p>
+              Chaque demande est traitée avec attention, qu'il s'agisse d'une fuite, d'une porte bloquée ou d'un problème électrique.
+            </p>
+
+            <div class="features">
+              <div class="feature">
+                <strong>Diagnostic clair</strong>
+                <span>Une explication simple avant de commencer les travaux.</span>
+              </div>
+              <div class="feature">
+                <strong>Travail soigne</strong>
+                <span>Intervention propre, matériel adapté, finitions vérifiées.</span>
+              </div>
+              <div class="feature">
+                <strong>Contact rapide</strong>
+                <span>Un numero direct pour expliquer votre besoin.</span>
+              </div>
+              <div class="feature">
+                <strong>Zone locale</strong>
+                <span>Interventions à Toulouse et dans les communes proches.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="methode">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Methode</p>
+            <h2>Une prise en charge simple, du premier appel à la fin du chantier.</h2>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Appel</h3>
+            <p>Vous expliquez le probleme et le niveau d'urgence.</p>
+          </div>
+          <div class="step">
+            <h3>Diagnostic</h3>
+            <p>La situation est évaluée pour proposer une solution adaptée.</p>
+          </div>
+          <div class="step">
+            <h3>Intervention</h3>
+            <p>Le travail est réalisé avec les outils et pièces nécessaires.</p>
+          </div>
+          <div class="step">
+            <h3>Verification</h3>
+            <p>Le résultat est contrôlé avant la fin de l'intervention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="contact-layout">
+          <div class="contact-panel">
+            <p class="section-kicker">Contact</p>
+            <h2>Besoin d'un plombier a Toulouse ? Appelez SAAO.</h2>
+            <p>
+              Pour une fuite, une canalisation bouchée, une porte bloquée ou un dépannage électrique, contactez directement SAAO par téléphone.
+            </p>
+
+            <div class="phone-card">
+              <div>
+                <span>Telephone</span>
+                <strong>+33 7 56 94 79 10</strong>
+              </div>
+              <a class="btn btn-primary" href="tel:+33756947910">Appeler</a>
+            </div>
+
+            <ul class="contact-list">
+              <li><strong>Adresse :</strong> Toulouse, France</li>
+              <li><strong>Services :</strong> Plomberie, serrurerie, électricité</li>
+              <li><strong>Expérience :</strong> 5 ans</li>
+            </ul>
+          </div>
+
+          <div class="contact-map" aria-label="Zone d'intervention SAAO">
+            <div class="map-box">
+              <strong>Toulouse</strong>
+              <p>Interventions pour particuliers, commerces et petits locaux professionnels.</p>
+              <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Toulouse%20France" target="_blank" rel="noopener">Voir la zone</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span><strong>SAAO</strong> - Plombier, serrurier et électricien à Toulouse</span>
+      <span>Téléphone : +33 7 56 94 79 10</span>
+    </div>
+  </footer>
 </body>
 </html>
